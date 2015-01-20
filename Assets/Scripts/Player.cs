@@ -30,14 +30,9 @@ public class Player : Entity {
 	
 	//Vertical movement
 
-		if (Input.GetAxisRaw ("Vertical") >= 0) {
-						targetSpeed = topSpeed * Input.GetAxisRaw ("Vertical");
-						curSpeedY = IncrementTowards (curSpeedY, targetSpeed, speed);
-		} else if (transform.position.y > lowerBound && Input.GetAxisRaw ("Vertical") <= 0) {
-						targetSpeed = topSpeed * Input.GetAxisRaw ("Vertical");
-						curSpeedY = IncrementTowards (curSpeedY, targetSpeed, speed);
-
-		} if(transform.position.y + curSpeedY > upperBound){
+		targetSpeed = topSpeed * Input.GetAxisRaw ("Vertical");
+		curSpeedY = IncrementTowards (curSpeedY, targetSpeed, speed);
+		if(transform.position.y + curSpeedY > upperBound){
 			curSpeedY = upperBound-transform.position.y;
 		}
 		if(transform.position.y +curSpeedY < lowerBound){
@@ -47,14 +42,10 @@ public class Player : Entity {
 
 		//Horizontal movement
 
-		if (Input.GetAxisRaw ("Horizontal") >= 0) {
-			targetSpeed = topSpeed * Input.GetAxisRaw ("Horizontal");
-			curSpeedX = IncrementTowards (curSpeedX, targetSpeed, speed);
-		} else if (transform.position.y > lowerBound && Input.GetAxisRaw ("Horizontal") <= 0) {
-			targetSpeed = topSpeed * Input.GetAxisRaw ("Horizontal");
-			curSpeedX = IncrementTowards (curSpeedX, targetSpeed, speed);
-			
-		} if(transform.position.x + curSpeedX > rightBound){
+
+		targetSpeed = topSpeed * Input.GetAxisRaw ("Horizontal");
+		curSpeedX = IncrementTowards (curSpeedX, targetSpeed, speed);
+		if(transform.position.x + curSpeedX > rightBound){
 			curSpeedX = rightBound-transform.position.x;
 		}
 		if(transform.position.x +curSpeedX < leftBound){
