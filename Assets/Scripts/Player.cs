@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Player : Entity {
 
-	private int primaryDamage;
 	public int secondaryDamage = 4;
 	public float topSpeed = 1;
 
@@ -17,9 +16,15 @@ public class Player : Entity {
 	private float curSpeedY;
 	private float targetSpeed;
 
+	public GameObject shot;
+	public Transform shotSpawn;
+	public float fireRate;
+	
+	private float nextFire;
+
 
 	void Start(){
-		primaryDamage = damage;
+		this.points = 0;
 		curSpeedX = 0;
 		curSpeedY = 0;
 	}
@@ -55,7 +60,10 @@ public class Player : Entity {
 		}
 
 
-
+		if (Input.GetButton("Fire1") && Time.time > nextFire){
+			nextFire = Time.time + fireRate;
+			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+		}
 
 		move (new Vector2 (curSpeedX, curSpeedY));
 

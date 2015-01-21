@@ -2,10 +2,13 @@
 using System.Collections;
 
 public class basicParticle : Entity {
-	
-	protected float endPoint = -24;
-	public int points = 100;
 
+	void Start(){
+		this.speed = 4;
+		this.health = 10;
+		this.damage = 5;
+		this.points = 100;
+	}
 
 	void Update () {
 	 	if (transform.position.x > endPoint) {
@@ -13,11 +16,5 @@ public class basicParticle : Entity {
 		} else {
 			die ();
 		}
-	
-
-	
 	}
-
-
-
 }
