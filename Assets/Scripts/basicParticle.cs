@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class basicParticleScript : MonoBehaviour {
+public class basicParticle : Entity {
+	
+	protected float endPoint = -24;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+
 	void Update () {
+	 	if (transform.position.x > endPoint) {
+			move (new Vector2(speed * Time.deltaTime * -1,0));
+		} else {
+			die ();
+		}
+	
+
 	
 	}
+
+
+
 }

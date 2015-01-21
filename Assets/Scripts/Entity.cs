@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour {
 	}
 
 	protected void die(){
-
+		Destroy (this.gameObject);
 	}
 
 	protected void move(Vector2 amount){

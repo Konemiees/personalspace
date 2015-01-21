@@ -25,13 +25,14 @@ public class Player : Entity {
 	}
 
 
-	// Update is called once per frame
+
 	void Update () {
 	
-	//Vertical movement
+		//Vertical movement
 
 		targetSpeed = topSpeed * Input.GetAxisRaw ("Vertical");
 		curSpeedY = IncrementTowards (curSpeedY, targetSpeed, speed);
+
 		if(transform.position.y + curSpeedY > upperBound){
 			curSpeedY = upperBound-transform.position.y;
 		}
@@ -45,6 +46,7 @@ public class Player : Entity {
 
 		targetSpeed = topSpeed * Input.GetAxisRaw ("Horizontal");
 		curSpeedX = IncrementTowards (curSpeedX, targetSpeed, speed);
+
 		if(transform.position.x + curSpeedX > rightBound){
 			curSpeedX = rightBound-transform.position.x;
 		}
