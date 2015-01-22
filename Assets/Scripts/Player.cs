@@ -5,6 +5,7 @@ public class Player : Entity {
 
 	public int secondaryDamage = 4;
 	public float topSpeed = 1;
+	public int Score = 0;
 
 	private float upperBound = 9.5f;
 	private float lowerBound = -9.5f;
@@ -24,9 +25,12 @@ public class Player : Entity {
 
 
 	void Start(){
-		this.points = 0;
+		points = 0;
 		curSpeedX = 0;
 		curSpeedY = 0;
+		health = 6;
+		damage = 1;
+		Score = 0;
 	}
 
 

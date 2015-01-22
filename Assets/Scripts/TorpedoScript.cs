@@ -7,6 +7,8 @@ public class TorpedoScript : Entity {
 	void Start (){
 		speed = 8;
 		endPoint = 24;
+		health = 1;
+		damage = 1;
 	}
 
 	void Update () {

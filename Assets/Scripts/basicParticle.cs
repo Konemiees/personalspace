@@ -5,7 +5,7 @@ public class basicParticle : Entity {
 
 	void Start(){
 		this.speed = 4;
-		this.health = 10;
+		this.health = 1;
 		this.damage = 5;
 		this.points = 100;
 	}

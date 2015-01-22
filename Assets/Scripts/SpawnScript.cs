@@ -10,18 +10,17 @@ public class SpawnScript : MonoBehaviour {
 	
 	private float spawnTime;
 	private float timePassed;
+	private float Score;
 	
-	
-	//Testaamiseen
-	private float testScore;
+	/*Testaamiseen
 	private float delta;
 	private bool alreadyPrint = false;
-	
+	**/
 	
 	
 	
 	void Start () {
-		testScore = 0;
+		Score = 0;
 		timePassed = 0;
 		
 	}
@@ -32,7 +31,7 @@ public class SpawnScript : MonoBehaviour {
 		
 		
 		//Testaamiseen
-		testScorer();
+		//testScorer();
 		
 		
 		
@@ -56,22 +55,23 @@ public class SpawnScript : MonoBehaviour {
 		
 	}
 	
+
 	
-	
-	//Testaamiseen
+	/*Testaamiseen
 	private void testScorer(){
 		testScore += Time.deltaTime * 40;
-	}
+	}**/
 	
 	
 	
 	//Arpoo uuden spawn-ajan
 	private void newSpawnTime(){
+		Score = GameObject.FindGameObjectsWithTag ("Player") [0].GetComponent<Player> ().Score;
 		float t = 0.0f;
-		if (testScore >= 200) {
-			t = Random.Range (0.2f, 6 / (1 + Mathf.Log ((testScore / 100), 1.3f)));
+		if (Score >= 200) {
+			t = Random.Range (0.2f, 12 / (1 + Mathf.Log ((Score / 100), 1.3f)));
 		} else {
-			t = Random.Range(0.2f, 2.0f) ;
+			t = Random.Range(1.2f, 3.0f) ;
 		}
 		//print (t);
 		spawnTime = t;
