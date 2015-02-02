@@ -16,10 +16,11 @@ public class ZigShip : Entity{
 	protected int dir = 1;
 	protected float upperBound;
 
-	void Start(){
+	protected void Start(){
 		this.speed = 4;
 		upperBound = transform.position.y + 4;
 		lowerBound = transform.position.y - 4;
+		base.Start();
 	}
 
 	void Update () {

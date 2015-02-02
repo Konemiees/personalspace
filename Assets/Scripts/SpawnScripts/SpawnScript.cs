@@ -11,6 +11,8 @@ public class SpawnScript : MonoBehaviour {
 	protected float spawnTime;
 	protected float timePassed;
 	protected float Score;
+
+	protected int paused;
 	
 	/*Testaamiseen
 	private float delta;
@@ -22,35 +24,34 @@ public class SpawnScript : MonoBehaviour {
 	void Start () {
 		Score = 0;
 		timePassed = 0;
+		paused = FindObjectOfType<Menuscript> ().paused;
 		
 	}
 	
 	// Update is called once per frame
 	protected void Update () {
 		
-		
+		paused = FindObjectOfType<Menuscript>().paused;
 		
 		//Testaamiseen
 		//testScorer();
 		
 		
 		
+	if (paused == -1) {
 		
+			if (timePassed == 0) {
+				newSpawnTime ();
+			}
 		
-		if (timePassed == 0) {
-			newSpawnTime();
+			timePassed += Time.deltaTime;
+		
+			if (timePassed > spawnTime) {
+				timePassed = 0;
+				GameObject m = Instantiate (Object, new Vector3 (24, randomCoordinate (), 0), Quaternion.identity) as GameObject;
+			}
+		
 		}
-		
-		timePassed += Time.deltaTime;
-		
-		if (timePassed > spawnTime) {
-			//print(testScore);
-			//print(timePassed);
-			timePassed = 0;
-			GameObject m = Instantiate(Object, new Vector3(24, randomCoordinate(), 0), Quaternion.identity) as GameObject;
-		}
-		
-		
 		
 		
 	}

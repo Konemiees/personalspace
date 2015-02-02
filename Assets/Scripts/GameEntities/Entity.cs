@@ -9,10 +9,12 @@ public class Entity : MonoBehaviour {
 	public int points;
 	public float endPoint = -24;
 
+	public int paused;
 
 
-	void Start(){
-		print(GameObject.FindGameObjectsWithTag ("Player").Length) ;
+
+	protected void Start(){
+		paused = FindObjectOfType<Menuscript>().paused;
 	}
 
 
@@ -52,7 +54,9 @@ public class Entity : MonoBehaviour {
 	}
 
 	protected void move(Vector2 amount){
-		transform.Translate (new Vector3 (amount.x, amount.y, 0));
+		if (paused == -1) {
+				transform.Translate (new Vector3 (amount.x, amount.y, 0));
+		}
 	}
 
 }

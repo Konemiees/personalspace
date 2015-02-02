@@ -8,9 +8,11 @@ public class basicParticle : Entity {
 		this.health = 3;
 		this.damage = 5;
 		this.points = 100;
+		paused = FindObjectOfType<Menuscript>().paused;
 	}
 
 	void Update () {
+		paused = FindObjectOfType<Menuscript>().paused;
 	 	if (transform.position.x > endPoint) {
 			move (new Vector2(speed * Time.deltaTime * -1,0));
 		} else {

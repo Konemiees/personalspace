@@ -31,6 +31,7 @@ public class Player : Entity {
 		health = 6;
 		damage = 1;
 		Score = 0;
+		base.Start();
 	}
 
 
@@ -68,6 +69,9 @@ public class Player : Entity {
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 		}
+
+
+
 
 		move (new Vector2 (curSpeedX, curSpeedY));
 
