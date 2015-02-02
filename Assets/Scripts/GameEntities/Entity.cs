@@ -23,6 +23,7 @@ public class Entity : MonoBehaviour {
 		if (health <= 0){
 			this.die();
 			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().Score += points;
+			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().fragments += 1;
 			//print(GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().Score);
 		}
 	}
