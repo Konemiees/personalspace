@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\GameEntities\ZigShip.cs" />
      <Compile Include="Assets\Scripts\GameEntities\basicParticle.cs" />
      <Compile Include="Assets\Scripts\Menuscript.cs" />
+     <Compile Include="Assets\Scripts\ParticleRotator.cs" />
      <Compile Include="Assets\Scripts\SpaceBackground.cs" />
      <Compile Include="Assets\Scripts\SpawnScripts\SpawnScript.cs" />
      <Compile Include="Assets\Scripts\SpawnScripts\ZigSpawnScript.cs" />

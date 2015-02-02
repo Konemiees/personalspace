@@ -21,9 +21,7 @@ public class Menuscript : MonoBehaviour {
 			paused = paused * -1;
 			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().paused = paused;
 			GameObject.FindGameObjectsWithTag("Background")[0].GetComponent<SpaceBackground>().paused = paused;
-			for(int i = 0; i < GameObject.FindGameObjectsWithTag("Enemies").Length; i++){
-				GameObject.FindGameObjectsWithTag("Enemies")[i].GetComponent<Entity>().paused = paused;
-			}
+
 			for(int i = 0; i < GameObject.FindGameObjectsWithTag("Shots").Length; i++){
 				GameObject.FindGameObjectsWithTag("Shots")[i].GetComponent<Entity>().paused = paused;
 			}

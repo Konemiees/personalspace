@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using System.Collections;
 
 public class Player : Entity {
@@ -27,7 +27,7 @@ public class Player : Entity {
 	public int fragments;
 	private int upgradeAvail = 20;
 
-	public Text upgradeText;
+//	public Text upgradeText;
 
 	void Start(){
 		points = 0;
@@ -38,7 +38,7 @@ public class Player : Entity {
 		Score = 0;
 		fragments = 0;
 		
-		upgradeText.enabled = false;
+//		upgradeText.enabled = false;
 
 		base.Start();
 		
@@ -90,15 +90,15 @@ public class Player : Entity {
 		//Upgrades
 		if (fragments >= upgradeAvail) {
 
-			upgradeText.enabled = true;
+		//	upgradeText.enabled = true;
 
-			if (Input.GetButton ("Upgrade")) {
+//			if (Input.GetButton ("Upgrade")) {
 					//print("upgrade key was pressed");
-				damage += 2;
-				fragments -= 20;
-				upgradeText.enabled = false;
+	//			damage += 2;
+	//			fragments -= 20;
+				//upgradeText.enabled = false;
 
-			}
+	//		}
 		}
 
 	}
