@@ -17,6 +17,8 @@ public class Menuscript : MonoBehaviour {
 
 		paused = -1;
 
+		MenuTexts();
+
 		Toggle ();
 	}
 	
@@ -26,6 +28,7 @@ public class Menuscript : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Menu")) {
 
+			//Pitää vielä disabloida ampuminen menun ollessa auki
 
 			paused = paused * -1;
 			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().paused = paused;
@@ -51,16 +54,22 @@ public class Menuscript : MonoBehaviour {
 			b.enabled=menuRend.enabled;
 	}
 
+	public void MenuTexts() {
+		GUI.depth = -3;
+		GUI.Label(new Rect(0, 0, 15, 15), "Primary weapon");
+	
+	}
 
-
-	/**void OnGui(){
+	/**
+	void OnGui(){
 
 		if (paused == 1) {
 
-			GUI.DrawTexture(Rect(Screen.width*0.5-50, Screen.height*0.5+2.5f, 100, 40), pause)
+			GUI.DrawTexture(Rect(Screen.width*0.5-50, Screen.height*0.5+2.5f, 100, 40), "pause");
 
 		}
 		
-	}**/
+	}
+	*/
 
 }

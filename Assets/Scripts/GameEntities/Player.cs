@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-//using UnityEngine.UI;
 using System.Collections;
 
 public class Player : Entity {
@@ -25,9 +24,10 @@ public class Player : Entity {
 	private float nextFire;
 
 	public int fragments;
-	private int upgradeAvail = 20;
 
-//	public Text upgradeText;
+	public int primaryLevel = 1;
+	public int secondaryLevel = 1;
+	public int shieldLevel = 1;
 
 	void Start(){
 		points = 0;
@@ -86,21 +86,6 @@ public class Player : Entity {
 
 		move (new Vector2 (curSpeedX, curSpeedY));
 
-
-		//Upgrades
-		if (fragments >= upgradeAvail) {
-
-		//	upgradeText.enabled = true;
-
-//			if (Input.GetButton ("Upgrade")) {
-					//print("upgrade key was pressed");
-	//			damage += 2;
-	//			fragments -= 20;
-				//upgradeText.enabled = false;
-
-	//		}
-		}
-
 	}
 	
 
@@ -114,5 +99,16 @@ public class Player : Entity {
 			n+=a*Time.deltaTime*dir;
 			return(dir == Mathf.Sign(target-n))? n: target;
 		}
+	}
+
+	//Push button, get levels
+	public void LevelPrimary() {
+		primaryLevel += 1;
+	}
+	public void LevelSecondary() {
+		secondaryLevel += 1;
+	}
+	public void LevelShield() {
+		shieldLevel += 1;
 	}
 }

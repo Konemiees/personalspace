@@ -31,22 +31,26 @@ public class Entity : MonoBehaviour {
 	//Tarvii työstää ennen lisää testausta, tällä hetkellä optimoitu niin että pelaajahahmo teurastaa törmäilemällä kaikki muut.
 	//Lol. T. Julius
 	public void OnTriggerEnter2D(Collider2D other){
-		Entity otherPlayer = other.GetComponent<Entity>();
-		if (this is Player) {
-			//print (other.gameObject.name + " Has collided with you!");				
-			otherPlayer.takeDamage (this.damage);
-		} else if (otherPlayer is Player) {
-			//print (this + " Has collided with you!");				
-			takeDamage (otherPlayer.damage);
-		}else if (otherPlayer is TorpedoScript) {
-			takeDamage(otherPlayer.damage);
-			otherPlayer.takeDamage(damage);
-		}else if (this is TorpedoScript) {
-			takeDamage(otherPlayer.damage);
-			otherPlayer.takeDamage(damage);
-		}
-		else {
-			takeDamage(20);
+
+		if (other.tag == "Menu") { //Menussa colliderit. Crashaa jos törmää muihin pelin juttuihin
+						//Ei tehä mittää
+		} else {
+				Entity otherPlayer = other.GetComponent<Entity> ();
+				if (this is Player) {
+						//print (other.gameObject.name + " Has collided with you!");				
+						otherPlayer.takeDamage (this.damage);
+				} else if (otherPlayer is Player) {
+						//print (this + " Has collided with you!");				
+						takeDamage (otherPlayer.damage);
+				} else if (otherPlayer is TorpedoScript) {
+						takeDamage (otherPlayer.damage);
+						otherPlayer.takeDamage (damage);
+				} else if (this is TorpedoScript) {
+						takeDamage (otherPlayer.damage);
+						otherPlayer.takeDamage (damage);
+				} else {
+						takeDamage (20);
+				}
 		}
 	}
 	
