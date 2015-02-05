@@ -6,9 +6,18 @@ public class Menuscript : MonoBehaviour {
 	public int paused;
 	//public Texture 
 
+	private GameObject menuObject;
+	private Renderer menuRend;
+
 	// Use this for initialization
 	void Start () {
+
+		menuObject = GameObject.Find("Menu");
+		menuRend = menuObject.renderer;
+
 		paused = -1;
+
+		Toggle ();
 	}
 	
 	// Update is called once per frame
@@ -26,10 +35,22 @@ public class Menuscript : MonoBehaviour {
 				GameObject.FindGameObjectsWithTag("Shots")[i].GetComponent<Entity>().paused = paused;
 			}
 
-
+			Toggle();
 		}
 
 	}
+
+
+	//Piilottaa ja näyttää menun. Disabloi myös nappulat, eli boxcolliderit
+	public void Toggle() {
+
+		menuRend.enabled = !menuRend.enabled;
+		foreach(Renderer r in menuObject.GetComponentsInChildren<Renderer>())
+			r.enabled=menuRend.enabled;
+		foreach(BoxCollider2D b in menuObject.GetComponentsInChildren<BoxCollider2D>())
+			b.enabled=menuRend.enabled;
+	}
+
 
 
 	/**void OnGui(){
