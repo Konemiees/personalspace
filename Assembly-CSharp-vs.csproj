@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\PauseMenu\Upgrade2.cs" />
      <Compile Include="Assets\Scripts\PauseMenu\Upgrade3.cs" />
      <Compile Include="Assets\Scripts\SpaceBackground.cs" />
+     <Compile Include="Assets\Scripts\SpawnScripts\BackgroundSpawner.cs" />
      <Compile Include="Assets\Scripts\SpawnScripts\SpawnScript.cs" />
      <Compile Include="Assets\Scripts\SpawnScripts\ZigSpawnScript.cs" />
      <Compile Include="Assets\startGame.cs" />
