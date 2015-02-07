@@ -104,12 +104,37 @@ public class Player : Entity {
 
 	//Push button, get levels
 	public void LevelPrimary() {
+		fragments -= 20 + primaryLevel;
 		primaryLevel += 1;
 	}
 	public void LevelSecondary() {
+		fragments -= 20 + secondaryLevel;
 		secondaryLevel += 1;
 	}
 	public void LevelShield() {
+		fragments -= 20 + shieldLevel;
 		shieldLevel += 1;
+	}
+
+	public bool primaryUpgrade() {
+		if (fragments >= 20 + primaryLevel) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public bool secondaryUpgrade() {
+		if (fragments >= 20 + secondaryLevel) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public bool shieldUpgrade() {
+		if (fragments >= 20 + shieldLevel) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

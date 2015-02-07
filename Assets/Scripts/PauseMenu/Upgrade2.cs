@@ -7,18 +7,16 @@ public class Upgrade2 : MonoBehaviour {
 	public Player player;
 
 	private Text upgradeText;
-	private string upgradeString;
-	
+	private string upgradeString = "Secondary level: ";
+
 	void Start () {
 		upgradeText = GameObject.Find ("upgrade2_text").GetComponent<Text> ();
-		upgradeString = "Secondary level: ";
 	}
 	
 	void Update () {
 		
 		upgradeText.text = upgradeString + player.secondaryLevel;
-		
-		//Tsekkaus jos päivitys saatavilla, muuten nappula harmaaksi
+
 	}
 
 	void OnMouseDown() {
