@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Menuscript : MonoBehaviour {
@@ -7,12 +8,14 @@ public class Menuscript : MonoBehaviour {
 	//public Texture 
 
 	private GameObject menuObject;
+	private GameObject menuTexts;
 	private Renderer menuRend;
 
 	// Use this for initialization
 	void Start () {
 
 		menuObject = GameObject.Find("Menu");
+		menuTexts = GameObject.Find("Menutexts");
 		menuRend = menuObject.renderer;
 
 		paused = -1;
@@ -46,11 +49,18 @@ public class Menuscript : MonoBehaviour {
 	//Piilottaa ja näyttää menun. Disabloi myös nappulat, eli boxcolliderit
 	public void Toggle() {
 
+		//Enable/disable nappulaspritet
 		menuRend.enabled = !menuRend.enabled;
 		foreach(Renderer r in menuObject.GetComponentsInChildren<Renderer>())
 			r.enabled=menuRend.enabled;
+		//Enable/disable boxcolliderit
 		foreach(BoxCollider2D b in menuObject.GetComponentsInChildren<BoxCollider2D>())
 			b.enabled=menuRend.enabled;
+		//Enable/disable tekstit
+		foreach(Text t in menuTexts.GetComponentsInChildren<Text>())
+			t.enabled=menuRend.enabled;
+
+
 	}
 
 	public void MenuTexts() {
