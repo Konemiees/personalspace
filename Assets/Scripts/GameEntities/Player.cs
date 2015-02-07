@@ -49,6 +49,7 @@ public class Player : Entity {
 
 	void Update () {
 	
+		paused = FindObjectOfType<Menuscript> ().paused;
 		//Vertical movement
 
 		targetSpeed = topSpeed * Input.GetAxisRaw ("Vertical");
