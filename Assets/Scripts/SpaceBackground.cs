@@ -1,7 +1,7 @@
 ﻿using UnityEngine; 
 using System.Collections;
 
-public class SpaceBackground : MonoBehaviour { 
+public class SpaceBackground: MonoBehaviour { 
 
 	public float speed = 0;
 	public int paused = -1;

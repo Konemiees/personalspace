@@ -31,8 +31,7 @@ public class Menuscript : MonoBehaviour {
 			//Pitää vielä disabloida ampuminen menun ollessa auki
 
 			paused = paused * -1;
-			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().paused = paused;
-			GameObject.FindGameObjectsWithTag("Background")[0].GetComponent<SpaceBackground>().paused = paused;
+
 
 			for(int i = 0; i < GameObject.FindGameObjectsWithTag("Shots").Length; i++){
 				GameObject.FindGameObjectsWithTag("Shots")[i].GetComponent<Entity>().paused = paused;
