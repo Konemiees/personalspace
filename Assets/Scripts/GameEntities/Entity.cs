@@ -36,6 +36,11 @@ public class Entity : MonoBehaviour {
 						//Ei tehä mittää
 		} else {
 				Entity otherPlayer = other.GetComponent<Entity> ();
+				if (otherPlayer is basicParticle){
+						basicParticle temp = other.GetComponent<basicParticle>();
+						temp.OnTriggerEnter2D(this.gameObject.GetComponent<Collider2D>());
+						goto skippaus;
+				}
 				if (this is Player) {
 						//print (other.gameObject.name + " Has collided with you!");				
 						otherPlayer.takeDamage (this.damage);
@@ -51,6 +56,8 @@ public class Entity : MonoBehaviour {
 				} else {
 						takeDamage (20);
 				}
+		skippaus:
+				;
 		}
 	}
 	

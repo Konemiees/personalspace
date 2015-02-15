@@ -12,6 +12,8 @@ public class ParticleRotator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		print(gameObject.GetComponent<Animator> ().GetInteger ("died"));
 	
 		paused = FindObjectOfType<Menuscript>().paused;
 
