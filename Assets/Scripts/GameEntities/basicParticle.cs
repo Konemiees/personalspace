@@ -41,7 +41,7 @@ public class basicParticle : Entity {
 	//Alemmat kopioitu, koska muuten käytetään väärää kuolintapaa T: Konsta
 
 	public void takeDamage(int hit){
-		health -= hit;
+		this.health -= hit;
 		if (health <= 0){
 			this.die();
 			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().Score += points;

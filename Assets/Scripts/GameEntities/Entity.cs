@@ -19,7 +19,7 @@ public class Entity : MonoBehaviour {
 
 
 	public void takeDamage(int hit){
-		health -= hit;
+		this.health -= hit;
 		if (health <= 0){
 			this.die();
 			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().Score += points;
@@ -37,15 +37,16 @@ public class Entity : MonoBehaviour {
 		} else {
 				Entity otherPlayer = other.GetComponent<Entity> ();
 				if (otherPlayer is basicParticle){
+						Debug.Log("Shots fired!");
 						basicParticle temp = other.GetComponent<basicParticle>();
 						temp.OnTriggerEnter2D(this.gameObject.GetComponent<Collider2D>());
 						goto skippaus;
 				}
 				if (this is Player) {
-						//print (other.gameObject.name + " Has collided with you!");				
+						//print (other.gameObject.name + " Has collided with you!");	
 						otherPlayer.takeDamage (this.damage);
 				} else if (otherPlayer is Player) {
-						//print (this + " Has collided with you!");				
+						//print (this + " Has collided with you!");
 						takeDamage (otherPlayer.damage);
 				} else if (otherPlayer is TorpedoScript) {
 						takeDamage (otherPlayer.damage);

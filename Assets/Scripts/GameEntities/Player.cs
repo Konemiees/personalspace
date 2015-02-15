@@ -6,6 +6,7 @@ public class Player : Entity {
 	public int secondaryDamage = 4;
 	public float topSpeed = 1;
 	public int Score = 0;
+	private int baseDamage = 1;
 
 	private float upperBound = 9.5f;
 	private float lowerBound = -9.5f;
@@ -34,7 +35,7 @@ public class Player : Entity {
 		curSpeedX = 0;
 		curSpeedY = 0;
 		health = 6;
-		damage = 1;
+		damage = baseDamage;
 		Score = 0;
 		fragments = 0;
 		
@@ -48,7 +49,9 @@ public class Player : Entity {
 
 
 	void Update () {
-	
+
+		damage = baseDamage + primaryLevel;
+
 		paused = FindObjectOfType<Menuscript> ().paused;
 		//Vertical movement
 
@@ -116,6 +119,10 @@ public class Player : Entity {
 		shieldLevel += 1;
 	}
 
+
+	//Tarkistus jos upgradea saatavilla. Pitää luultavasti vielä viilailla paljonko fragmentteja tarvitaan millekin levulle.
+	//Tällä hetkellä jokainen levu lisää tarvittavien fragmenttien määrää yhdellä
+	//Samat ylemmille metodeille
 	public bool primaryUpgrade() {
 		if (fragments >= 20 + primaryLevel) {
 			return true;
