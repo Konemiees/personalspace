@@ -39,8 +39,6 @@ public class Menuscript : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Menu")) {
 
-			//Pitää vielä disabloida ampuminen menun ollessa auki
-
 			paused = paused * -1;
 
 

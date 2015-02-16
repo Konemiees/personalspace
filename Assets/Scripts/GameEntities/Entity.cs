@@ -37,7 +37,7 @@ public class Entity : MonoBehaviour {
 		} else {
 				Entity otherPlayer = other.GetComponent<Entity> ();
 				if (otherPlayer is basicParticle){
-						Debug.Log("Shots fired!");
+						//Debug.Log("Shots fired!");
 						basicParticle temp = other.GetComponent<basicParticle>();
 						temp.OnTriggerEnter2D(this.gameObject.GetComponent<Collider2D>());
 						goto skippaus;

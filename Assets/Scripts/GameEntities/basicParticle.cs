@@ -59,9 +59,11 @@ public class basicParticle : Entity {
 		} else {
 			Entity otherPlayer = other.GetComponent<Entity> ();				
 			 if (otherPlayer is Player) {
+				Debug.Log("Shots fired_1");
 				//print (this + " Has collided with you!");				
 				takeDamage (otherPlayer.damage);
 			} else if (otherPlayer is TorpedoScript) {
+				Debug.Log("Shots fired_2");
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
 			

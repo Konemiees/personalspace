@@ -26,9 +26,9 @@ public class Player : Entity {
 
 	public int fragments;
 
-	public int primaryLevel = 1;
-	public int secondaryLevel = 1;
-	public int shieldLevel = 1;
+	public int primaryLevel = 0;
+	public int secondaryLevel = 0;
+	public int shieldLevel = 0;
 
 	void Start(){
 		points = 0;
@@ -80,7 +80,7 @@ public class Player : Entity {
 		}
 
 
-		if (Input.GetButton("Fire1") && Time.time > nextFire){
+		if (Input.GetButton("Fire1") && Time.time > nextFire && paused != 1){
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 		}
