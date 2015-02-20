@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa1cd2a147030b45a08b50643493272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .200000003
+  speed: .0199999996
   paused: -1
 --- !u!1 &169666864
 GameObject:
@@ -285,7 +285,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 10.1208448
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
