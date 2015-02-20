@@ -67,6 +67,10 @@ public class basicParticle : Entity {
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
 			
+			} else if (otherPlayer is LightBeam) {
+				Debug.Log("Shots fired_3");
+				takeDamage (otherPlayer.damage);
+				otherPlayer.takeDamage (damage);
 			} else {
 				takeDamage (20);
 			}

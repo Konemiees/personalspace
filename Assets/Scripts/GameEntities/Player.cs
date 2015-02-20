@@ -19,6 +19,7 @@ public class Player : Entity {
 	private float targetSpeed;
 
 	public GameObject shot;
+	public GameObject shot2;
 	public Transform shotSpawn;
 	public float fireRate;
 	
@@ -83,6 +84,11 @@ public class Player : Entity {
 		if (Input.GetButton("Fire1") && Time.time > nextFire && paused != 1){
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+		}
+
+		if (Input.GetButton("Fire2") && Time.time > nextFire && paused != 1){
+			nextFire = Time.time + fireRate;
+			Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
 		}
 
 
