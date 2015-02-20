@@ -41,7 +41,7 @@ public class basicParticle : Entity {
 	//Alemmat kopioitu, koska muuten käytetään väärää kuolintapaa T: Konsta
 
 	public void takeDamage(int hit){
-		health -= hit;
+		this.health -= hit;
 		if (health <= 0){
 			this.die();
 			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().Score += points;
@@ -59,12 +59,18 @@ public class basicParticle : Entity {
 		} else {
 			Entity otherPlayer = other.GetComponent<Entity> ();				
 			 if (otherPlayer is Player) {
+				Debug.Log("Shots fired_1");
 				//print (this + " Has collided with you!");				
 				takeDamage (otherPlayer.damage);
 			} else if (otherPlayer is TorpedoScript) {
+				Debug.Log("Shots fired_2");
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
 			
+			} else if (otherPlayer is LightBeam) {
+				Debug.Log("Shots fired_3");
+				takeDamage (otherPlayer.damage);
+				otherPlayer.takeDamage (damage);
 			} else {
 				takeDamage (20);
 			}
