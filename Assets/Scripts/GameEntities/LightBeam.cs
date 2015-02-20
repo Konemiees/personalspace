@@ -12,7 +12,7 @@ public class LightBeam : Entity {
 		
 		speed = 18;
 		endPoint = 24;
-		health = 1;
+		health = 500;
 		damage = player.secondaryDamage;
 		paused = FindObjectOfType<Menuscript>().paused;
 	}
