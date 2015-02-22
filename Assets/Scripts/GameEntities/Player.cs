@@ -51,7 +51,7 @@ public class Player : Entity {
 
 	void Update () {
 
-		damage = baseDamage + primaryLevel;
+		damage = baseDamage + (primaryLevel-1)/3;
 
 		paused = FindObjectOfType<Menuscript> ().paused;
 		//Vertical movement
