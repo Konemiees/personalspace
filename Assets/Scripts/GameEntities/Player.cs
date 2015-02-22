@@ -88,6 +88,8 @@ public class Player : Entity {
 		if (Input.GetButton("Fire1") && Time.time > nextFire && paused != 1){
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+			audio.Play ();
+
 		}
 
 		if (Input.GetButton("Fire2") && Time.time > nextFire && paused != 1){
