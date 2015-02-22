@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Player : Entity {
 
-	public int secondaryDamage = 4;
+	public int secondaryDamage;
 	public float topSpeed = 1;
 	public int Score = 0;
 	private int baseDamage = 1;
+	private int secondaryBaseDamage = 1;
 
 	private float upperBound = 9.5f;
 	private float lowerBound = -9.5f;
@@ -51,7 +52,10 @@ public class Player : Entity {
 
 	void Update () {
 
+
 		damage = baseDamage + (primaryLevel-1)/3;
+		secondaryDamage = secondaryBaseDamage + secondaryLevel;
+
 
 		paused = FindObjectOfType<Menuscript> ().paused;
 		//Vertical movement
