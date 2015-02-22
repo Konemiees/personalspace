@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ZigSpawnScript : SpawnScript {
 	
-
+	protected int scoreLowLimit = 1000;
 
 
 
@@ -13,7 +13,7 @@ public class ZigSpawnScript : SpawnScript {
 		paused = FindObjectOfType<Menuscript>().paused;
 		if (paused == -1) {
 
-			if (GameObject.FindGameObjectsWithTag ("Player") [0].GetComponent<Player> ().Score >= 1000) {
+			if (GameObject.FindGameObjectsWithTag ("Player") [0].GetComponent<Player> ().Score >= scoreLowLimit) {
 				if (timePassed == 0) {
 					newSpawnTime ();
 				}
@@ -34,9 +34,14 @@ public class ZigSpawnScript : SpawnScript {
 
 	protected void newSpawnTime(){
 		Score = GameObject.FindGameObjectsWithTag ("Player") [0].GetComponent<Player> ().Score;
-		float t = Random.Range (0.4f, (6 / (Mathf.Log ((Score / 100), 10))));
-		print (t);
+		float t;
+		if (this is SpartanSpawner) {
+			t = Random.Range (1.4f, 1.4f + (6 / (Mathf.Log ((Score / 100), 10))));
+		} else {
+			t = Random.Range (0.4f,(6 / (Mathf.Log ((Score / 100), 10))));
+		}
 		spawnTime = t;
+
 	}
 
 }

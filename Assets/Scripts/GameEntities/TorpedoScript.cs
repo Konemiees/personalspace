@@ -10,7 +10,7 @@ public class TorpedoScript : Entity {
 
 		player = GameObject.FindGameObjectsWithTag ("Player") [0].GetComponent<Player> ();
 
-		speed = 18;
+		speed = 40;
 		endPoint = 24;
 		health = 1;
 		damage = player.damage;
