@@ -455,6 +455,7 @@ GameObject:
   - 50: {fileID: 556286489}
   - 95: {fileID: 556286490}
   - 212: {fileID: 556286484}
+  - 82: {fileID: 556286486}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -562,6 +563,64 @@ PolygonCollider2D:
       - {x: 1.53999996, y: -1.51999998}
       - {x: 1.49000001, y: -1.28999996}
       - {x: 1.41999996, y: -1.13999999}
+--- !u!82 &556286486
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 556286483}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 4f1067a3e84dd214cb485f8d889b2002, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .735000014
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!4 &556286487
 Transform:
   m_ObjectHideFlags: 0
@@ -711,6 +770,7 @@ GameObject:
   - 114: {fileID: 753007863}
   - 114: {fileID: 753007862}
   - 114: {fileID: 753007864}
+  - 82: {fileID: 753007865}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -795,6 +855,64 @@ MonoBehaviour:
   Object4: {fileID: 190952, guid: ed6008042d05b3b4490262cb5a227d96, type: 2}
   Object5: {fileID: 134752, guid: 04f08e45abb408948b83499e71944b19, type: 2}
   Object6: {fileID: 170138, guid: b4f1e6ff1f2e9524ab4496fb545b3654, type: 2}
+--- !u!82 &753007865
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 753007859}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &847909452
 GameObject:
   m_ObjectHideFlags: 0
