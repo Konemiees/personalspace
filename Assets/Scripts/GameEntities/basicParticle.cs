@@ -9,7 +9,7 @@ public class basicParticle : Entity {
 	void Start(){
 
 		this.health = 3;
-		this.damage = 5;
+		this.damage = 1;
 		this.points = 100;
 		paused = FindObjectOfType<Menuscript>().paused;
 	}
@@ -60,7 +60,8 @@ public class basicParticle : Entity {
 			Entity otherPlayer = other.GetComponent<Entity> ();				
 			 if (otherPlayer is Player) {
 				Debug.Log("Shots fired_1");
-				//print (this + " Has collided with you!");				
+				//print (this + " Has collided with you!");
+				otherPlayer.takeDamage (this.damage);
 				takeDamage (otherPlayer.damage);
 			} else if (otherPlayer is TorpedoScript) {
 				Debug.Log("Shots fired_2");

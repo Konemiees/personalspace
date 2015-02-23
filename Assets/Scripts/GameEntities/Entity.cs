@@ -43,10 +43,12 @@ public class Entity : MonoBehaviour {
 						goto skippaus;
 				}
 				if (this is Player) {
-						//print (other.gameObject.name + " Has collided with you!");	
+						//print (other.gameObject.name + " Has collided with you!");
+						takeDamage(otherPlayer.damage);
 						otherPlayer.takeDamage (this.damage);
 				} else if (otherPlayer is Player) {
 						//print (this + " Has collided with you!");
+						otherPlayer.takeDamage (this.damage);
 						takeDamage (otherPlayer.damage);
 				} else if (otherPlayer is TorpedoScript) {
 						takeDamage (otherPlayer.damage);
