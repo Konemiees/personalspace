@@ -12,11 +12,11 @@ public class Entity : MonoBehaviour {
 	public int paused;
 
 
-
+	/*
 	protected void Start(){
 		paused = FindObjectOfType<Menuscript>().paused;
 	}
-
+*/
 
 	public void takeDamage(int hit){
 		this.health -= hit;

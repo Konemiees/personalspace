@@ -30,10 +30,10 @@ public class Player : Entity {
 	public Transform shotSpawn;
 	public float fireRate;
 	
-	private float nextFire;
+	private float nextFire = 0;
 
 	public float fireRate2;
-	private float nextFire2;
+	private float nextFire2 = 0;
 
 	public int fragments;
 
@@ -57,13 +57,12 @@ public class Player : Entity {
 		died = false;
 		
 
-
 		healthText = GameObject.Find ("health_text").GetComponent<Text> ();
 		secondaryReady = GameObject.Find ("secondary_ready").GetComponent<Text> ();
 		
 //		upgradeText.enabled = false;
 
-		base.Start();
+		//base.Start();
 		
 
 	}
@@ -112,8 +111,8 @@ public class Player : Entity {
 
 		}
 		
-		if (Input.GetButton("Fire2") && Time.time > nextFire && paused != 1 && !died){
-			nextFire = Time.time + fireRate;
+		if (Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died){
+			nextFire2 = Time.time + fireRate2;
 			Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
 		}
 

@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: enemy1_glowing4
+  m_Name: Spartan
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers: []
