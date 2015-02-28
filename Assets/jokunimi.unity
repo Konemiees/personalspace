@@ -656,12 +656,10 @@ MonoBehaviour:
   Score: 0
   died: 0
   shot: {fileID: 100002, guid: 37ada6641e9a1b541be258791236a533, type: 2}
-  shot2: {fileID: 142416, guid: 3304047d0c3ef8f4c86d5a1c48c2d5c0, type: 2}
-  shot3: {fileID: 189172, guid: cc96fbefff6f9884cb0a40d341b7a8b3, type: 2}
+  shot2: {fileID: 154646, guid: e58c42a67de1b0b49b97c77f9b5b39a6, type: 2}
   shotSpawn: {fileID: 847909453}
   fireRate: .400000006
   fireRate2: 5.5
-  interval: .200000003
   beamLength: .5
   fragments: 0
   primaryLevel: 1
@@ -993,9 +991,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 847909453}
   - 95: {fileID: 847909454}
+  - 212: {fileID: 847909455}
   m_Layer: 0
   m_Name: ShotSpawn
-  m_TagString: Untagged
+  m_TagString: lazorAnim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1027,6 +1026,28 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!212 &847909455
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847909452}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d494d2cd846ff40478d3c7c2bf6e86a7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1009425355
 GameObject:
   m_ObjectHideFlags: 0

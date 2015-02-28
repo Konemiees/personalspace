@@ -11,7 +11,6 @@ public class Player : Entity {
 	public float topSpeed = 1;
 	public int Score = 0;
 	private int baseDamage = 1;
-	private int secondaryBaseDamage = 1;
 
 	private float upperBound = 9.5f;
 	private float lowerBound = -9.5f;
@@ -27,7 +26,6 @@ public class Player : Entity {
 
 	public GameObject shot;
 	public GameObject shot2;
-	public GameObject shot3;
 	public Transform shotSpawn;
 	public float fireRate;
 	
@@ -37,12 +35,13 @@ public class Player : Entity {
 	public float fireRate2 = 5.5f;
 	private float nextFire2;
 	private float fireStop;
-	public float interval = .02f;
 	public float beamLength = .5f;
-	private float nextInstance;
+	private bool fired;
 
 
 	public int fragments;
+
+	protected float wt = 0;
 
 	public int primaryLevel = 0;
 	public int secondaryLevel = 0;
@@ -60,9 +59,10 @@ public class Player : Entity {
 		damage = baseDamage;
 		Score = 0;
 		fragments = 0;
+		fired = false;
 
 		died = false;
-		
+
 
 		healthText = GameObject.Find ("health_text").GetComponent<Text> ();
 		secondaryReady = GameObject.Find ("secondary_ready").GetComponent<Text> ();
@@ -78,9 +78,12 @@ public class Player : Entity {
 
 	void Update () {
 
+		if (died) {
+			this.GetComponent<Animator> ().SetInteger ("died", 1);
+		}
 
 		damage = baseDamage + (primaryLevel-1)/3;
-		secondaryDamage = secondaryBaseDamage + secondaryLevel;
+		//secondaryDamage = secondaryBaseDamage + secondaryLevel;
 
 
 		paused = FindObjectOfType<Menuscript> ().paused;
@@ -117,23 +120,20 @@ public class Player : Entity {
 			audio.Play();
 
 		}
-		
-<<<<<<< HEAD
-		if ((Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died) || (Time.time < fireStop && !died)){
-			if(fireStop < Time.time){
-				Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
+
+		if ((Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died) || (fired && !died)){
+			if(!fired){
+				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 1);
+				Instantiate(shot2, new Vector2(shotSpawn.position.x +24, shotSpawn.position.y), shotSpawn.rotation);
 				fireStop = Time.time + beamLength;
-				nextInstance = Time.time + interval;
-			}else if(nextInstance < Time.time){
+				fired = true;
+			}else if( fireStop < Time.time){
 				nextFire2 = Time.time + fireRate2;
-				Instantiate(shot3, shotSpawn.position, shotSpawn.rotation);
-				nextInstance = Time.time +interval;
+				Destroy(GameObject.FindGameObjectWithTag("laazoor"));
+				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 0);
+				fired = false;
 			}
-=======
-		if (Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died){
-			nextFire2 = Time.time + fireRate2;
-			Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
->>>>>>> a152bf25e0a3326706861f4f9e6043ccefaaf6fb
+
 		}
 
 		healthText.text = "Health: "+ Mathf.FloorToInt(health/maxHealth*100);

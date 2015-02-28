@@ -42,6 +42,18 @@ public class Entity : MonoBehaviour {
 						temp.OnTriggerEnter2D(this.gameObject.GetComponent<Collider2D>());
 						goto skippaus;
 				}
+			if (otherPlayer is Spartan){
+				//Debug.Log("Shots fired!");
+				Spartan temp = other.GetComponent<Spartan>();
+				temp.OnTriggerEnter2D(this.gameObject.GetComponent<Collider2D>());
+				goto skippaus;
+			}
+			if (otherPlayer is ZigShip){
+				//Debug.Log("Shots fired!");
+				ZigShip temp = other.GetComponent<ZigShip>();
+				temp.OnTriggerEnter2D(this.gameObject.GetComponent<Collider2D>());
+				goto skippaus;
+			}
 				if (this is Player) {
 						//print (other.gameObject.name + " Has collided with you!");
 						takeDamage(otherPlayer.damage);

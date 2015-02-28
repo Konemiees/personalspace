@@ -72,7 +72,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ZigZaggerDeath
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: a977be2fa37fe1b4e99a22c8be0a7e5e, type: 2}
@@ -111,13 +111,13 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110202010}
-      second:
-      - {fileID: 110149008}
-    data:
       first: {fileID: 110237318}
       second:
       - {fileID: 110123006}
+    data:
+      first: {fileID: 110202010}
+      second:
+      - {fileID: 110149008}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -348, y: -12, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
