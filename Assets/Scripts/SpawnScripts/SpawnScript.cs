@@ -38,7 +38,7 @@ public class SpawnScript : MonoBehaviour {
 		
 		
 		
-	if (paused == -1) {
+		if (paused == -1 && !FindObjectOfType<Player>().died) {
 		
 			if (timePassed == 0) {
 				newSpawnTime ();

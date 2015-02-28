@@ -65,11 +65,16 @@ public class Entity : MonoBehaviour {
 	}
 	
 	protected void die(){
-		Destroy (this.gameObject);
+		if (this is Player) {
+			Player temp = this.GetComponent<Player> ();
+			temp.died = true;
+		} else {
+			Destroy (this.gameObject);
+		}
 	}
 
 	protected void move(Vector2 amount){
-		if (paused == -1) {
+		if (paused == -1 && !FindObjectOfType<Player>().died) {
 				transform.Translate (new Vector3 (amount.x, amount.y, 0));
 		}
 	}

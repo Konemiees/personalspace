@@ -16,7 +16,7 @@ public class basicParticle : Entity {
 
 	void Update () {
 		paused = FindObjectOfType<Menuscript>().paused;
-	 	if (transform.position.x > endPoint) {
+	 	if (transform.position.x > endPoint && !FindObjectOfType<Player>().died) {
 		//	transform.RotateAround(transform.position, new Vector3(0, 0, 1), Time.deltaTime);
 			move (new Vector2(speed * Time.deltaTime * -1,0));
 			if(wt < Time.time && died){

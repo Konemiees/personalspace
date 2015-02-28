@@ -221,7 +221,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -71.0999985, y: -45.7999992}
+  m_AnchoredPosition: {x: -54, y: -41}
   m_SizeDelta: {x: 125, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &185645114
@@ -654,6 +654,7 @@ MonoBehaviour:
   secondaryDamage: 4
   topSpeed: .300000012
   Score: 0
+  died: 0
   shot: {fileID: 100002, guid: 37ada6641e9a1b541be258791236a533, type: 2}
   shot2: {fileID: 114654, guid: 757ee061ce145a849af5fdff3c19d1b2, type: 2}
   shotSpawn: {fileID: 847909453}
@@ -723,7 +724,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -71.0999985, y: -1.5}
+  m_AnchoredPosition: {x: -56, y: -2}
   m_SizeDelta: {x: 125, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &578190152
@@ -1451,6 +1452,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -71.0999985, y: 43.4000015}
+  m_AnchoredPosition: {x: -55, y: 36}
   m_SizeDelta: {x: 125, y: 20}
   m_Pivot: {x: .5, y: .5}

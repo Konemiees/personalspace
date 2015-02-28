@@ -11,7 +11,7 @@ public class ZigSpawnScript : SpawnScript {
 	protected void Update () {
 
 		paused = FindObjectOfType<Menuscript>().paused;
-		if (paused == -1) {
+		if (paused == -1 && !FindObjectOfType<Player>().died) {
 
 			if (GameObject.FindGameObjectsWithTag ("Player") [0].GetComponent<Player> ().Score >= scoreLowLimit) {
 				if (timePassed == 0) {

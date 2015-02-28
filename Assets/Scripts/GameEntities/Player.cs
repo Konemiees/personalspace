@@ -19,6 +19,8 @@ public class Player : Entity {
 	private float curSpeedY;
 	private float targetSpeed;
 
+	public bool died;
+
 	public GameObject shot;
 	public GameObject shot2;
 	public Transform shotSpawn;
@@ -40,6 +42,7 @@ public class Player : Entity {
 		damage = baseDamage;
 		Score = 0;
 		fragments = 0;
+		died = false;
 		
 //		upgradeText.enabled = false;
 
@@ -85,14 +88,14 @@ public class Player : Entity {
 		}
 
 
-		if (Input.GetButton("Fire1") && Time.time > nextFire && paused != 1){
+		if (Input.GetButton("Fire1") && Time.time > nextFire && paused != 1 && !died){
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			audio.Play();
 
 		}
 
-		if (Input.GetButton("Fire2") && Time.time > nextFire && paused != 1){
+		if (Input.GetButton("Fire2") && Time.time > nextFire && paused != 1 && !died){
 			nextFire = Time.time + fireRate;
 			Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
 		}
