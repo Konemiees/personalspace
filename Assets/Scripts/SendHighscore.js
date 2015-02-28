@@ -3,6 +3,7 @@
 var getURL = "http://192.168.1.37/:3000/highscore";
 var postURL = "http://192.168.1.37/:3000/score";
 
+var highscore : Score;
 
 
 //var button : UnityEngine.UI.Button;
@@ -13,9 +14,10 @@ function Start() {
 }
 
 function ButtonClicked(){
-	var name = "Matti";
-	//name = GameObject.Find("highscore").GetComponent(InputField).Text;
-	var score = "100";
+	var name = "No-name";
+	name = GameObject.Find("highscore").GetComponent(UI.InputField).text;
+	
+	var score = highscore.highscore;
 
 	UploadHighscore(name, score);
 }

@@ -51,6 +51,8 @@ public class Player : Entity {
 	private Text healthText;
 	private Text secondaryReady;
 
+	private Score highscore;
+
 	void Start(){
 		points = 0;
 		curSpeedX = 0;
@@ -66,6 +68,8 @@ public class Player : Entity {
 
 		healthText = GameObject.Find ("health_text").GetComponent<Text> ();
 		secondaryReady = GameObject.Find ("secondary_ready").GetComponent<Text> ();
+
+		highscore = GameObject.Find ("Scoreobject").GetComponent<Score> ();
 		
 //		upgradeText.enabled = false;
 
@@ -77,6 +81,7 @@ public class Player : Entity {
 
 
 	void Update () {
+
 
 
 		damage = baseDamage + (primaryLevel-1)/3;
@@ -141,6 +146,8 @@ public class Player : Entity {
 		}
 
 		move (new Vector2 (curSpeedX, curSpeedY));
+
+		highscore.highscore = Score;
 
 	}
 	
