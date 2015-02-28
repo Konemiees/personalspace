@@ -13,7 +13,7 @@ public class ZigShip : Entity{ //Vaihdetaan perittäväksi basicParticle kun kuo
 		this.speed = 4;
 		upperBound = transform.position.y + 4;
 		lowerBound = transform.position.y - 4;
-		base.Start();
+		//base.Start();
 	}
 
 	void Update () {
