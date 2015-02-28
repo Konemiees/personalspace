@@ -118,7 +118,7 @@ public class Player : Entity {
 
 		}
 		
-<<<<<<< HEAD
+
 		if ((Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died) || (Time.time < fireStop && !died)){
 			if(fireStop < Time.time){
 				Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
@@ -129,11 +129,7 @@ public class Player : Entity {
 				Instantiate(shot3, shotSpawn.position, shotSpawn.rotation);
 				nextInstance = Time.time +interval;
 			}
-=======
-		if (Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died){
-			nextFire2 = Time.time + fireRate2;
-			Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
->>>>>>> a152bf25e0a3326706861f4f9e6043ccefaaf6fb
+
 		}
 
 		healthText.text = "Health: "+ Mathf.FloorToInt(health/maxHealth*100);
