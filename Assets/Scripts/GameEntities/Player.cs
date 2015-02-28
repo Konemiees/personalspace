@@ -27,13 +27,20 @@ public class Player : Entity {
 
 	public GameObject shot;
 	public GameObject shot2;
+	public GameObject shot3;
 	public Transform shotSpawn;
 	public float fireRate;
 	
 	private float nextFire = 0;
 
-	public float fireRate2;
-	private float nextFire2 = 0;
+
+	public float fireRate2 = 5.5f;
+	private float nextFire2;
+	private float fireStop;
+	public float interval = .02f;
+	public float beamLength = .5f;
+	private float nextInstance;
+
 
 	public int fragments;
 
@@ -111,9 +118,22 @@ public class Player : Entity {
 
 		}
 		
+<<<<<<< HEAD
+		if ((Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died) || (Time.time < fireStop && !died)){
+			if(fireStop < Time.time){
+				Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
+				fireStop = Time.time + beamLength;
+				nextInstance = Time.time + interval;
+			}else if(nextInstance < Time.time){
+				nextFire2 = Time.time + fireRate2;
+				Instantiate(shot3, shotSpawn.position, shotSpawn.rotation);
+				nextInstance = Time.time +interval;
+			}
+=======
 		if (Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died){
 			nextFire2 = Time.time + fireRate2;
 			Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
+>>>>>>> a152bf25e0a3326706861f4f9e6043ccefaaf6fb
 		}
 
 		healthText.text = "Health: "+ Mathf.FloorToInt(health/maxHealth*100);

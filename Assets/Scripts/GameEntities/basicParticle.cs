@@ -81,6 +81,7 @@ public class basicParticle : Entity {
 				//Debug.Log("Shots fired_2");
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
+				print("osui");
 			
 			} else if (otherPlayer is LightBeam) {
 				//Debug.Log("Shots fired_3");
