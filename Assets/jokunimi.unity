@@ -656,10 +656,13 @@ MonoBehaviour:
   Score: 0
   died: 0
   shot: {fileID: 100002, guid: 37ada6641e9a1b541be258791236a533, type: 2}
-  shot2: {fileID: 114654, guid: 757ee061ce145a849af5fdff3c19d1b2, type: 2}
+  shot2: {fileID: 142416, guid: 3304047d0c3ef8f4c86d5a1c48c2d5c0, type: 2}
+  shot3: {fileID: 189172, guid: cc96fbefff6f9884cb0a40d341b7a8b3, type: 2}
   shotSpawn: {fileID: 847909453}
   fireRate: .400000006
-  fireRate2: 10
+  fireRate2: 5.5
+  interval: .200000003
+  beamLength: .5
   fragments: 0
   primaryLevel: 1
   secondaryLevel: 1
@@ -884,7 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dddb2450d538a84f9a263b7a95a7ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 128080, guid: 441cb7ddf5487f64f87591f0eae58a2c, type: 2}
+  Object: {fileID: 155808, guid: 93e60b27b97b70c43856725c09f13277, type: 2}
   minSpawnTime: .200000003
   upperBound: 9.69999981
   lowerBound: -9.69999981
@@ -899,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9706a09743be1a468a9343d6b561909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 100000, guid: d1b0cf7143e2c5d4fbb01d8a40ed1cf4, type: 2}
+  Object: {fileID: 144568, guid: 8ec05cfa280fa744a9390e77daedccae, type: 2}
   minSpawnTime: .200000003
   upperBound: 9.69999981
   lowerBound: -9.69999981
@@ -989,6 +992,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 847909453}
+  - 95: {fileID: 847909454}
   m_Layer: 0
   m_Name: ShotSpawn
   m_TagString: Untagged
@@ -1008,6 +1012,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 556286487}
   m_RootOrder: 0
+--- !u!95 &847909454
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847909452}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a60a25093615d934c8376ce5dab83548, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1009425355
 GameObject:
   m_ObjectHideFlags: 0

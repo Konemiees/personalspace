@@ -53,9 +53,11 @@ public class Entity : MonoBehaviour {
 				} else if (otherPlayer is TorpedoScript) {
 						takeDamage (otherPlayer.damage);
 						otherPlayer.takeDamage (damage);
+				print("osui");
 				} else if (this is TorpedoScript) {
 						takeDamage (otherPlayer.damage);
 						otherPlayer.takeDamage (damage);
+				print("osui");
 				} else {
 						takeDamage (20);
 				}

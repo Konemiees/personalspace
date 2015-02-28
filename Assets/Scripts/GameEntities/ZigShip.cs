@@ -7,6 +7,7 @@ public class ZigShip : Entity{ //Vaihdetaan perittäväksi basicParticle kun kuo
 	protected float lowerBound;
 	protected int dir = 1;
 	protected float upperBound;
+	public float speedUpDown = 6;
 
 	protected void Start(){
 		this.speed = 4;

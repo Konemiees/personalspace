@@ -14,8 +14,11 @@ public class Spartan : Entity {  //Vaihdetaan perittäväksi basicParticle kun k
 		target = GameObject.Find ("Player").transform;
 		if(transform.position.x > endPoint && !FindObjectOfType<Player>().died){
 			move (new Vector2(speed * Time.deltaTime * -1,Check()));
+			/*if(wt < Time.time && died){
+				Destroy(this.gameObject);
+			}*/
 		} else {
-			die ();
+			base.die();
 		}
 		targetBefore = target.position.y;
 	}
