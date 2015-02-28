@@ -50,6 +50,8 @@ public class Player : Entity {
 	private Text healthText;
 	private Text secondaryReady;
 
+	private Score highscore;
+
 	void Start(){
 		points = 0;
 		curSpeedX = 0;
@@ -66,6 +68,8 @@ public class Player : Entity {
 
 		healthText = GameObject.Find ("health_text").GetComponent<Text> ();
 		secondaryReady = GameObject.Find ("secondary_ready").GetComponent<Text> ();
+
+		highscore = GameObject.Find ("Scoreobject").GetComponent<Score> ();
 		
 //		upgradeText.enabled = false;
 
@@ -81,6 +85,7 @@ public class Player : Entity {
 		if (died) {
 			this.GetComponent<Animator> ().SetInteger ("died", 1);
 		}
+
 
 		damage = baseDamage + (primaryLevel-1)/3;
 		//secondaryDamage = secondaryBaseDamage + secondaryLevel;
@@ -121,10 +126,12 @@ public class Player : Entity {
 
 		}
 
+
 		if ((Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died) || (fired && !died)){
 			if(!fired){
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 1);
 				Instantiate(shot2, new Vector2(shotSpawn.position.x +24, shotSpawn.position.y), shotSpawn.rotation);
+
 				fireStop = Time.time + beamLength;
 				fired = true;
 			}else if( fireStop < Time.time){
@@ -145,6 +152,8 @@ public class Player : Entity {
 		}
 
 		move (new Vector2 (curSpeedX, curSpeedY));
+
+		highscore.highscore = Score;
 
 	}
 	
