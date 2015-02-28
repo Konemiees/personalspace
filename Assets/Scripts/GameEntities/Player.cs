@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player : Entity {
+
+	//Sama kuin health
+	private float maxHealth;
 
 	public int secondaryDamage;
 	public float topSpeed = 1;
@@ -28,21 +32,34 @@ public class Player : Entity {
 	
 	private float nextFire;
 
+	public float fireRate2;
+	private float nextFire2;
+
 	public int fragments;
 
 	public int primaryLevel = 0;
 	public int secondaryLevel = 0;
 	public int shieldLevel = 0;
 
+	private Text healthText;
+	private Text secondaryReady;
+
 	void Start(){
 		points = 0;
 		curSpeedX = 0;
 		curSpeedY = 0;
 		health = 6;
+		maxHealth = health;
 		damage = baseDamage;
 		Score = 0;
 		fragments = 0;
+
 		died = false;
+		
+
+
+		healthText = GameObject.Find ("health_text").GetComponent<Text> ();
+		secondaryReady = GameObject.Find ("secondary_ready").GetComponent<Text> ();
 		
 //		upgradeText.enabled = false;
 
@@ -94,14 +111,19 @@ public class Player : Entity {
 			audio.Play();
 
 		}
-
+		
 		if (Input.GetButton("Fire2") && Time.time > nextFire && paused != 1 && !died){
 			nextFire = Time.time + fireRate;
 			Instantiate(shot2, shotSpawn.position, shotSpawn.rotation);
 		}
 
+		healthText.text = "Health: "+ Mathf.FloorToInt(health/maxHealth*100);
 
-
+		if (Time.time > nextFire2) {
+			secondaryReady.enabled = true;
+		} else {
+			secondaryReady.enabled = false;		
+		}
 
 		move (new Vector2 (curSpeedX, curSpeedY));
 

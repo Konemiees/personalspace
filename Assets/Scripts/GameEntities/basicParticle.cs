@@ -6,7 +6,18 @@ public class basicParticle : Entity {
 	protected float wt = 0;
 	protected bool died = false;
 
+	private bool verticalMove = false;
+	private int verticalDir = 1;
+	private float verticalSpeed = Random.Range(0.5f, 2f);
+
 	void Start(){
+
+		//Randomilla että liikkuuko meteori myös Y-akselilla
+		if (Random.Range (1, 10) > 6) 
+						verticalMove = true;
+		//Suunta riippuen lähtöpositionista. Ylhäältä alas, alhaalta ylös
+		if (transform.position.y > 0)
+						verticalDir = -1;
 
 		this.health = 3;
 		this.damage = 1;
@@ -18,7 +29,12 @@ public class basicParticle : Entity {
 		paused = FindObjectOfType<Menuscript>().paused;
 	 	if (transform.position.x > endPoint && !FindObjectOfType<Player>().died) {
 		//	transform.RotateAround(transform.position, new Vector3(0, 0, 1), Time.deltaTime);
-			move (new Vector2(speed * Time.deltaTime * -1,0));
+
+			if (verticalMove) 
+					move (new Vector2(speed * Time.deltaTime * -1, verticalSpeed * Time.deltaTime * verticalDir));
+			else 
+					move (new Vector2(speed * Time.deltaTime * -1,0));
+
 			if(wt < Time.time && died){
 
 				Destroy(this.gameObject);
@@ -59,17 +75,15 @@ public class basicParticle : Entity {
 		} else {
 			Entity otherPlayer = other.GetComponent<Entity> ();				
 			 if (otherPlayer is Player) {
-				Debug.Log("Shots fired_1");
-				//print (this + " Has collided with you!");
 				otherPlayer.takeDamage (this.damage);
-				takeDamage (otherPlayer.damage);
+				takeDamage (20);
 			} else if (otherPlayer is TorpedoScript) {
-				Debug.Log("Shots fired_2");
+				//Debug.Log("Shots fired_2");
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
 			
 			} else if (otherPlayer is LightBeam) {
-				Debug.Log("Shots fired_3");
+				//Debug.Log("Shots fired_3");
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
 			} else {
