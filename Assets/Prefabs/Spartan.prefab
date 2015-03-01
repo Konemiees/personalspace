@@ -68,14 +68,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb10de4b333b94745b71ada1dde19dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  speed: 8
-  damage: 3
+  health: 8
+  speed: 7
+  damage: 6
   points: 300
   endPoint: -24
   paused: 0
   target: {fileID: 0}
-  targetingSpeed: 4
+  targetingSpeed: 3
 --- !u!212 &21255808
 SpriteRenderer:
   m_ObjectHideFlags: 1

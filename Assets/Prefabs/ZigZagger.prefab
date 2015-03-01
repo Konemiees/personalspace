@@ -68,9 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8b33d6bf7c604f9cbb3cf8693f605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 3
   speed: 0
-  damage: 2
+  damage: 4
   points: 150
   endPoint: -24
   paused: 0

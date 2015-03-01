@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour {
 
 	public float health;
 	public float speed;
-	public int damage;
+	public float damage;
 	public int points;
 	public float endPoint = -24;
 
@@ -18,8 +18,11 @@ public class Entity : MonoBehaviour {
 	}
 */
 
-	public void takeDamage(int hit){
-		this.health -= hit;
+	public void takeDamage(float hit){
+		if (this is Player) {
+			if((hit - (this.GetComponent<Player> ().shieldLevel*.5f)) > 1)
+				health -= (hit - this.GetComponent<Player> ().shieldLevel*.5f);
+		}else{this.health -= hit;}
 		if (health <= 0){
 			this.die();
 			GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().Score += points;
@@ -62,11 +65,9 @@ public class Entity : MonoBehaviour {
 				else if (this is TorpedoScript) {
 						takeDamage (otherPlayer.damage);
 						otherPlayer.takeDamage (damage);
-				print("osui");
 			} else if (this is Lazor) {
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
-				print("osui");
 			}else {
 						takeDamage (20);
 				}

@@ -58,7 +58,7 @@ public class Player : Entity {
 		points = 0;
 		curSpeedX = 0;
 		curSpeedY = 0;
-		health = 6;
+		health = 12;
 		maxHealth = health;
 		damage = baseDamage;
 		Score = 0;
@@ -89,7 +89,7 @@ public class Player : Entity {
 		}
 
 
-		damage = baseDamage + (primaryLevel-1)/3;
+		damage = baseDamage + (primaryLevel*.5f);
 		//secondaryDamage = secondaryBaseDamage + secondaryLevel;
 
 
@@ -134,12 +134,14 @@ public class Player : Entity {
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 1);
 				fired = true;
 				loadingGun = Time.time + interval;
-				fireStop = Time.time + beamLength + interval;
+				fireStop = Time.time + beamLength + interval + .165f*secondaryLevel;
 			}else if(loadingGun < Time.time){
 				Instantiate(shot2, new Vector2(shotSpawn.position.x +24.6f, shotSpawn.position.y), shotSpawn.rotation);
 				loadingGun = Time.time + 10;
 			}else if( fireStop < Time.time){
 				nextFire2 = Time.time + fireRate2;
+				if(nextFire2 < 1)
+					nextFire2 = 1;
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 0);
 				Destroy(GameObject.FindGameObjectWithTag("laazoor"));
 				fired = false;

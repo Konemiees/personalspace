@@ -20,7 +20,7 @@ public class basicParticle : Entity {
 						verticalDir = -1;
 
 		this.health = 3;
-		this.damage = 1;
+		this.damage = 2;
 		this.points = 100;
 		paused = FindObjectOfType<Menuscript>().paused;
 	}
@@ -56,7 +56,7 @@ public class basicParticle : Entity {
 
 	//Alemmat kopioitu, koska muuten käytetään väärää kuolintapaa T: Konsta
 
-	public void takeDamage(int hit){
+	public void takeDamage(float hit){
 		this.health -= hit;
 		if (health <= 0){
 			this.die();
