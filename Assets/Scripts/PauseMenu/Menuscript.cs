@@ -63,6 +63,10 @@ public class Menuscript : MonoBehaviour {
 					temp.GetComponent<BoxCollider2D>().enabled = false;
 				}
 			}
+			//Disabloidaan shieldi upgrademenusta koska sitä ei ole
+			GameObject.Find ("upgrade3_text").GetComponent<Text> ().enabled = false;
+			GameObject.Find ("menu_upgrade3").GetComponent<Renderer> ().enabled = false;
+			GameObject.Find ("menu_upgrade3").GetComponent<BoxCollider2D> ().enabled = false;
 		}
 
 	}
@@ -82,6 +86,11 @@ public class Menuscript : MonoBehaviour {
 		//Enable/disable tekstit
 		foreach(Text t in menuTexts.GetComponentsInChildren<Text>())
 			t.enabled=menuRend.enabled;
+
+		//Disabloidaan shieldi upgrademenusta koska sitä ei ole
+		GameObject.Find ("upgrade3_text").GetComponent<Text> ().enabled = false;
+		GameObject.Find ("menu_upgrade3").GetComponent<Renderer> ().enabled = false;
+		GameObject.Find ("menu_upgrade3").GetComponent<BoxCollider2D> ().enabled = false;
 
 	}
 

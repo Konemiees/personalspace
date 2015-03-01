@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
-var getURL = "http://192.168.1.37/:3000/highscore";
-var postURL = "http://192.168.1.37/:3000/score";
+var getURL = "http://91.153.113.44:3000/highscore";
+var postURL = "http://91.153.113.44:3000/score";
 
 var highscore : Score;
 
@@ -15,7 +15,7 @@ function Start() {
 
 function ButtonClicked(){
 	var name = "No-name";
-	name = GameObject.Find("highscore").GetComponent(UI.InputField).text;
+	name = GameObject.Find("highscore_text").GetComponent(UI.InputField).text;
 	
 	var score = highscore.highscore;
 

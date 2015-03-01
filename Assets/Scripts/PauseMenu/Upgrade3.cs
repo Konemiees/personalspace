@@ -11,6 +11,7 @@ public class Upgrade3 : MonoBehaviour {
 
 	void Start () {
 		upgradeText = GameObject.Find ("upgrade3_text").GetComponent<Text> ();
+		upgradeText.enabled = false;
 	}
 	
 	void Update () {
