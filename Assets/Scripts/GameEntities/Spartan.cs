@@ -54,7 +54,7 @@ public class Spartan : Entity {  //Vaihdetaan perittäväksi basicParticle kun k
 	
 	//Alemmat kopioitu, koska muuten käytetään väärää kuolintapaa T: Konsta
 	
-	public void takeDamage(int hit){
+	public void takeDamage(float hit){
 		this.health -= hit;
 		if (health <= 0){
 			this.die();

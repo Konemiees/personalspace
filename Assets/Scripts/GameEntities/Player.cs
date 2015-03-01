@@ -37,6 +37,8 @@ public class Player : Entity {
 	private float fireStop;
 	public float beamLength = .5f;
 	private bool fired;
+	public float interval = .5f;
+	private float loadingGun;
 
 
 	public int fragments;
@@ -56,7 +58,7 @@ public class Player : Entity {
 		points = 0;
 		curSpeedX = 0;
 		curSpeedY = 0;
-		health = 6;
+		health = 12;
 		maxHealth = health;
 		damage = baseDamage;
 		Score = 0;
@@ -87,7 +89,7 @@ public class Player : Entity {
 		}
 
 
-		damage = baseDamage + (primaryLevel-1)/3;
+		damage = baseDamage + (primaryLevel*.5f);
 		//secondaryDamage = secondaryBaseDamage + secondaryLevel;
 
 
@@ -130,14 +132,18 @@ public class Player : Entity {
 		if ((Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died) || (fired && !died)){
 			if(!fired){
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 1);
-				Instantiate(shot2, new Vector2(shotSpawn.position.x +24, shotSpawn.position.y), shotSpawn.rotation);
-
-				fireStop = Time.time + beamLength;
 				fired = true;
+				loadingGun = Time.time + interval;
+				fireStop = Time.time + beamLength + interval + .165f*secondaryLevel;
+			}else if(loadingGun < Time.time){
+				Instantiate(shot2, new Vector2(shotSpawn.position.x +24.6f, shotSpawn.position.y), shotSpawn.rotation);
+				loadingGun = Time.time + 10;
 			}else if( fireStop < Time.time){
 				nextFire2 = Time.time + fireRate2;
-				Destroy(GameObject.FindGameObjectWithTag("laazoor"));
+				if(nextFire2 < 1)
+					nextFire2 = 1;
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 0);
+				Destroy(GameObject.FindGameObjectWithTag("laazoor"));
 				fired = false;
 			}
 
