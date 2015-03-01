@@ -74,20 +74,16 @@ public class basicParticle : Entity {
 			//Ei tehä mittää
 		} else {
 			Entity otherPlayer = other.GetComponent<Entity> ();				
-			 if (otherPlayer is Player) {
+			if (otherPlayer is Player) {
 				otherPlayer.takeDamage (this.damage);
 				takeDamage (20);
-			} else if (otherPlayer is TorpedoScript) {
+			} else if (otherPlayer is TorpedoScript || otherPlayer is Lazor) {
 				//Debug.Log("Shots fired_2");
 				takeDamage (otherPlayer.damage);
 				otherPlayer.takeDamage (damage);
 				print("osui");
-			
-			} else if (otherPlayer is LightBeam) {
-				//Debug.Log("Shots fired_3");
-				takeDamage (otherPlayer.damage);
-				otherPlayer.takeDamage (damage);
-			} else {
+			}  else {
+				otherPlayer.takeDamage(20);
 				takeDamage (20);
 			}
 	

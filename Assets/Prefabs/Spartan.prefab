@@ -71,7 +71,7 @@ MonoBehaviour:
   health: 10
   speed: 8
   damage: 3
-  points: 0
+  points: 300
   endPoint: -24
   paused: 0
   target: {fileID: 0}

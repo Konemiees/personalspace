@@ -57,20 +57,17 @@ public class Entity : MonoBehaviour {
 				if (this is Player) {
 						//print (other.gameObject.name + " Has collided with you!");
 						takeDamage(otherPlayer.damage);
-						otherPlayer.takeDamage (this.damage);
-				} else if (otherPlayer is Player) {
-						//print (this + " Has collided with you!");
-						otherPlayer.takeDamage (this.damage);
-						takeDamage (otherPlayer.damage);
-				} else if (otherPlayer is TorpedoScript) {
+						otherPlayer.takeDamage (20);
+				} 
+				else if (this is TorpedoScript) {
 						takeDamage (otherPlayer.damage);
 						otherPlayer.takeDamage (damage);
 				print("osui");
-				} else if (this is TorpedoScript) {
-						takeDamage (otherPlayer.damage);
-						otherPlayer.takeDamage (damage);
+			} else if (this is Lazor) {
+				takeDamage (otherPlayer.damage);
+				otherPlayer.takeDamage (damage);
 				print("osui");
-				} else {
+			}else {
 						takeDamage (20);
 				}
 		skippaus:
