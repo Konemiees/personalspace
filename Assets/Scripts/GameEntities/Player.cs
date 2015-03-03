@@ -14,8 +14,8 @@ public class Player : Entity {
 
 	private float upperBound = 9.5f;
 	private float lowerBound = -9.5f;
-	private float leftBound = -21.33f;
-	private float rightBound = 21.33f;
+	private float leftBound = -17.33f;
+	private float rightBound = 17.33f;
 
 
 	private float curSpeedX;
@@ -23,6 +23,7 @@ public class Player : Entity {
 	private float targetSpeed;
 
 	public bool died;
+	private float fireWT;
 
 	public GameObject shot;
 	public GameObject shot2;
@@ -88,6 +89,10 @@ public class Player : Entity {
 			this.GetComponent<Animator> ().SetInteger ("died", 1);
 		}
 
+		if (paused == -1) {
+			fireWT += Time.deltaTime;
+		}
+
 
 		damage = baseDamage + (primaryLevel*.5f);
 		//secondaryDamage = secondaryBaseDamage + secondaryLevel;
@@ -121,25 +126,25 @@ public class Player : Entity {
 		}
 
 
-		if (Input.GetButton("Fire1") && Time.time > nextFire && paused != 1 && !died){
-			nextFire = Time.time + fireRate;
+		if (Input.GetButton("Fire1") && fireWT > nextFire && paused != 1 && !died && !fired){
+			nextFire = fireWT + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			audio.Play();
 
 		}
 
 
-		if ((Input.GetButton("Fire2") && Time.time > nextFire2 && paused != 1 && !died) || (fired && !died)){
+		if ((Input.GetButton("Fire2") && fireWT > nextFire2 && paused != 1 && !died) || (fired && !died)){
 			if(!fired){
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 1);
 				fired = true;
-				loadingGun = Time.time + interval;
-				fireStop = Time.time + beamLength + interval + .165f*secondaryLevel;
-			}else if(loadingGun < Time.time){
+				loadingGun = fireWT + interval;
+				fireStop = fireWT + beamLength + interval + .165f*secondaryLevel;
+			}else if(loadingGun < fireWT){
 				Instantiate(shot2, new Vector2(shotSpawn.position.x +24.6f, shotSpawn.position.y), shotSpawn.rotation);
-				loadingGun = Time.time + 10;
-			}else if( fireStop < Time.time){
-				nextFire2 = Time.time + fireRate2;
+				loadingGun = fireWT + 10;
+			}else if( fireStop < fireWT){
+				nextFire2 = fireWT + fireRate2;
 				if(nextFire2 < 1)
 					nextFire2 = 1;
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 0);
@@ -151,7 +156,7 @@ public class Player : Entity {
 
 		healthText.text = "Health: "+ Mathf.FloorToInt(health/maxHealth*100);
 
-		if (Time.time > nextFire2) {
+		if (fireWT > nextFire2) {
 			secondaryReady.enabled = true;
 		} else {
 			secondaryReady.enabled = false;		
