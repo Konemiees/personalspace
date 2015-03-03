@@ -34,9 +34,9 @@ public class basicParticle : Entity {
 
 
 			if (verticalMove) 
-					move (new Vector2(speed * Time.deltaTime * -1, verticalSpeed * Time.deltaTime * verticalDir));
+				move (new Vector2(speed * Time.deltaTime * -1*(1+GameObject.FindObjectOfType<Player>().Score/50000), verticalSpeed * Time.deltaTime * verticalDir*(1+GameObject.FindObjectOfType<Player>().Score/50000)));
 			else 
-					move (new Vector2(speed * Time.deltaTime * -1,0));
+				move (new Vector2(speed * Time.deltaTime * -1*(1+GameObject.FindObjectOfType<Player>().Score/50000),0));
 
 			if(wt < Time.time && died){
 

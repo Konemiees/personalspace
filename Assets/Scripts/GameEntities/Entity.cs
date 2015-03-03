@@ -20,8 +20,9 @@ public class Entity : MonoBehaviour {
 
 	public void takeDamage(float hit){
 		if (this is Player) {
-			if((hit - (this.GetComponent<Player> ().shieldLevel*.5f)) > 1)
-				health -= (hit - this.GetComponent<Player> ().shieldLevel*.5f);
+			if((hit - (this.GetComponent<Player> ().shieldLevel*.5f)) > 1){
+				health -= (hit*(100/12) - this.GetComponent<Player> ().shieldLevel*.5f);}
+			else{ health -= 1;}
 		}else{this.health -= hit;}
 		if (health <= 0){
 			this.die();

@@ -21,7 +21,7 @@ public class ZigShip : Entity{ //Vaihdetaan perittäväksi basicParticle kun kuo
 		paused = FindObjectOfType<Menuscript>().paused;
 
 		if (transform.position.x > endPoint && !FindObjectOfType<Player>().died) {
-			move (new Vector2(speed * Time.deltaTime * -1,speed * Time.deltaTime * dir));
+			move (new Vector2(speed * Time.deltaTime * -1*(1+GameObject.FindObjectOfType<Player>().Score/50000),speed * Time.deltaTime * dir*(1+GameObject.FindObjectOfType<Player>().Score/50000)));
 			if(transform.position.y + speed * Time.deltaTime *dir > upperBound || transform.position.y +speed * Time.deltaTime *dir < lowerBound){
 				dir = dir*(-1);
 			}

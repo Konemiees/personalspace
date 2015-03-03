@@ -48,7 +48,7 @@ public class SpawnScript : MonoBehaviour {
 		
 			if (timePassed > spawnTime) {
 				timePassed = 0;
-				GameObject m = Instantiate (Object, new Vector3 (24, randomCoordinate (), 0), Quaternion.identity) as GameObject;
+				Instantiate (Object, new Vector3 (24, randomCoordinate (), 0), Quaternion.identity);
 			}
 		
 		}

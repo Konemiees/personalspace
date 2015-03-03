@@ -59,7 +59,7 @@ public class Player : Entity {
 		points = 0;
 		curSpeedX = 0;
 		curSpeedY = 0;
-		health = 12;
+		health = 100;
 		maxHealth = health;
 		damage = baseDamage;
 		Score = 0;
@@ -126,7 +126,7 @@ public class Player : Entity {
 		}
 
 
-		if (Input.GetButton("Fire1") && fireWT > nextFire && paused != 1 && !died && !fired){
+		if (Input.GetButtonDown("Fire1") && fireWT > nextFire && paused != 1 && !died && !fired){
 			nextFire = fireWT + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			audio.Play();
@@ -134,7 +134,7 @@ public class Player : Entity {
 		}
 
 
-		if ((Input.GetButton("Fire2") && fireWT > nextFire2 && paused != 1 && !died) || (fired && !died)){
+		if ((Input.GetButtonDown("Fire2") && fireWT > nextFire2 && paused != 1 && !died) || (fired && !died)){
 			if(!fired){
 				GameObject.FindGameObjectWithTag("lazorAnim").GetComponent<Animator>().SetInteger ("beamShot", 1);
 				fired = true;
@@ -154,7 +154,7 @@ public class Player : Entity {
 
 		}
 
-		healthText.text = "Health: "+ Mathf.FloorToInt(health/maxHealth*100);
+		healthText.text = "Health: "+ Mathf.FloorToInt(health);
 
 		if (fireWT > nextFire2) {
 			secondaryReady.enabled = true;
