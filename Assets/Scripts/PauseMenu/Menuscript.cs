@@ -51,7 +51,7 @@ public class Menuscript : MonoBehaviour {
 
 		//Tsekataan jos päivitys saatavilla ja sen mukaan näytetään tai piilotetaan nappulat
 		if (menuRend.enabled) {
-			for (int i = 0; i < menuObject.transform.childCount; i++) {
+			for (int i = 0; i < menuObject.transform.childCount-1; i++) {
 				
 				temp = menuObject.transform.GetChild(i).gameObject;
 				

@@ -52,6 +52,7 @@ public class Player : Entity {
 
 	private Text healthText;
 	private Text secondaryReady;
+	private Text upgradeAvailText;
 
 	private Score highscore;
 
@@ -71,10 +72,12 @@ public class Player : Entity {
 
 		healthText = GameObject.Find ("health_text").GetComponent<Text> ();
 		secondaryReady = GameObject.Find ("secondary_ready").GetComponent<Text> ();
+		upgradeAvailText = GameObject.Find ("upgrade_available").GetComponent<Text> ();
+
+
 
 		highscore = GameObject.Find ("Scoreobject").GetComponent<Score> ();
-		
-//		upgradeText.enabled = false;
+
 
 		//base.Start();
 		
@@ -160,6 +163,12 @@ public class Player : Entity {
 			secondaryReady.enabled = true;
 		} else {
 			secondaryReady.enabled = false;		
+		}
+
+		if (primaryUpgrade() || secondaryUpgrade() || shieldUpgrade()) {
+			upgradeAvailText.enabled = true;
+		} else {
+			upgradeAvailText.enabled = false;
 		}
 
 		move (new Vector2 (curSpeedX, curSpeedY));
